@@ -1,0 +1,92 @@
+<include file="./App/Admin/View/default/header_common.html" />
+
+
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+        <li><a href="{:U('Admin/Index/home')}">主页 </a></li>
+        <li><a href="{:U('Admin/Index/users')}">旅客信息 </a></li>
+        <li class="active"><a href="{:U('Admin/Index/income')}">收入 <span class="sr-only">(current)</span></a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">航班 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="{:U('Admin/Air/flightlines')}">航线 </a></li>
+                <li><a href="{:U('Admin/Air/flights')}">班机 </a></li>
+                <li><a href="{:U('Admin/Air/airlines')}">航空公司 </a></li>
+
+            </ul>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="{:U('Admin/Index/logout')}">退出</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<!-- /.navbar-collapse -->
+</div>
+<!-- /.container-fluid -->
+</nav>
+
+<div class="home-body bd">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <span>选择年份</span>
+            <select id="myYear" onchange="javascript:if (this.options[this.selectedIndex].value != '')
+ window.location.href='http://localhost/FlySystem/index.php?m=Admin&c=Index&a=income&year='+this.options[this.selectedIndex].value;this.options[0].selected;"> </select>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                        <th>9</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                        <th>合计</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>{$F_INCOME[1]}</th>
+                        <th>{$F_INCOME[2]}</th>
+                        <th>{$F_INCOME[3]}</th>
+                        <th>{$F_INCOME[4]}</th>
+                        <th>{$F_INCOME[5]}</th>
+                        <th>{$F_INCOME[6]}</th>
+                        <th>{$F_INCOME[7]}</th>
+                        <th>{$F_INCOME[8]}</th>
+                        <th>{$F_INCOME[9]}</th>
+                        <th>{$F_INCOME[10]}</th>
+                        <th>{$F_INCOME[11]}</th>
+                        <th>{$F_INCOME[12]}</th>
+                        <th>{$F_INCOME[0]}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+<script src="__PUBLIC__/js/jquery.min.js" charset="utf-8"></script>
+<script src="__PUBLIC__/js/plugins/bootstrap/js/bootstrap.js" charset="utf-8"></script>
+<script src="./App/Admin/View/default/js/income.js" charset="utf-8"></script>
+
+<script>
+</script>
+
+</html>

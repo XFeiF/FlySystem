@@ -1,0 +1,20 @@
+<?php
+        $FLY_USER = session('FLY_USER');
+?>
+    <div id="header">
+        <div class="top">
+            <div class="topWelcome">
+                <span>您好,欢迎来到飞票网！</span>
+            </div>
+            <div class="contact">
+                <span class="text_common">{$FLY_USER['userName']}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; QQ:
+                <span class="text_common">274656448</span>
+            </div>
+        </div>
+        <div id="banner">
+            <a href="{:U('Index/index')}"><img style="height:100px;float:left;" alt="飞票网" src="__PUBLIC__/img/logotext.png"></a>
+            <div class="slogan">
+                <h2>Fly机票预订系统</h2>
+            </div>
+        </div>
+    </div>

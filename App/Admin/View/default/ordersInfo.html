@@ -1,0 +1,108 @@
+<include file="./App/Admin/View/default/header_common.html" />
+
+
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+        <li><a href="{:U('Admin/Index/home')}">主页 </a></li>
+        <li><a href="{:U('Admin/Index/users')}">旅客信息 </a></li>
+        <li><a href="{:U('Admin/Index/income')}">收入 </a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">航班 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="{:U('Admin/Air/flightlines')}">航线 </a></li>
+                <li><a href="{:U('Admin/Air/flights')}">班机 </a></li>
+                <li><a href="{:U('Admin/Air/airlines')}">航空公司 </a></li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="{:U('Admin/Index/logout')}">退出</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<!-- /.navbar-collapse -->
+</div>
+<!-- /.container-fluid -->
+</nav>
+
+<div class="home-body bd">
+    <div class="flight-info">
+        <div class="panel panel-info">
+            <!-- Default panel contents -->
+            <div class="panel-heading">航班编号 <strong>{$flightID}</strong></div>
+            <div class="panel-body">
+                <div class="flightinfo">
+                    <table class="table_full">
+                        <tbody class="tbody_90">
+                            <tr class="F_header_row">
+                                <td class="F_airline">
+                                    <div class="airline medium_text">{$f.airlineName} {$f.dateOfDeparture}</div>
+                                    <div class="lineId">{$f.flightName}</div>
+                                </td>
+                                <td class="F_departure">
+                                    <div class="F_dep_time medium_text"><strong>{$f.timeOfFly}</strong></div>
+                                    <div class="F_dep_place small_text">{$f.departure}</div>
+                                </td>
+                                <td class="F_destination">
+                                    <div class="F_des_time medium_text"><strong>{$f.timeOfArrival}</strong></div>
+                                    <div class="F_des_place small_text">{$f.destination}</div>
+                                </td>
+                                <td class="F_price">
+                                    <div><span class="F_price_text big_text">¥ {$f.price}</span></div>
+                                </td>
+                                <td class="F_tickets">
+                                    <div><span class="F_ticket_text big_text">余票：{$f.ticketLeftNum}</span></div>
+                                </td>
+                                <td class="F_price">
+                                    <div><span class="F_price_text medium_text">满座率: {$fullRate}%</span></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Table -->
+        </div>
+    </div>
+
+    <div class="order-info">
+        <div class="panel panel-success">
+            <div class="panel-heading">旅客订单信息</div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#订单号</th>
+                            <th>#用户ID</th>
+                            <th>用户名</th>
+                            <th>订单状态</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <volist name="FLY_FLIGHT_ORDER" id="FO">
+                            <tr>
+                                <td scope="row">{$FO.orderID}</th>
+                                <td>{$FO.userID}</th>
+                                <td>{$FO.userName}</th>
+                                <td>{$FO.status}</th>
+                            </tr>
+                        </volist>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script src="__PUBLIC__/js/jquery.min.js" charset="utf-8"></script>
+<script src="__PUBLIC__/js/plugins/bootstrap/js/bootstrap.js" charset="utf-8"></script>
+
+</html>

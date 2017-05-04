@@ -1,0 +1,135 @@
+<include file="./App/Admin/View/default/header_common.html" />
+
+
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+
+        <li><a href="{:U('Admin/Index/home')}">主页</a></li>
+        <li><a href="{:U('Admin/Index/users')}">旅客信息 </a></li>
+        <li><a href="{:U('Admin/Index/income')}">收入</a></li>
+        <li class="dropdown active">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">航班 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="{:U('Admin/Air/flightlines')}">航线 </a></li>
+                <li class="active"><a href="{:U('Admin/Air/flights')}">班机 <span class="sr-only">(current)</span></a></li>
+                <li><a href="{:U('Admin/Air/airlines')}">航空公司 </a></li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="{:U('Admin/Index/logout')}">退出</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<!-- /.navbar-collapse -->
+</div>
+<!-- /.container-fluid -->
+</nav>
+
+<div class="home-body bd">
+
+    <div class="add-new">
+        <div class="panel panel-success">
+            <div class="panel-heading">添加班机</div>
+            <div class="panel-body">
+                <div class="row" id="info">
+                    <!-- /.col-lg-3 -->
+                     <div class="col-lg-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">航线</span>
+                            <input type="text" class="form-control" id="flightName">
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                    <!-- /.col-lg-3 -->
+                     <div class="col-lg-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">出发日期</span>
+                            <input type="text" class="form-control" id="dateOfDeparture">
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                    <!-- /.col-lg-3 -->
+                     <div class="col-lg-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">到达日期</span>
+                            <input type="text" class="form-control" id="dateOfArrival">
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                    <!-- /.col-lg-3 -->
+                     <div class="col-lg-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">价格</span>
+                            <input type="text" class="form-control" id="price">
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                    <!-- /.col-lg-3 -->
+                     <div class="col-lg-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">总票数 </span>
+                            <input type="text" class="form-control" id="ticketNum">
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                    <!-- /.col-lg-3 -->
+                </div>
+                <!-- /.row -->
+                <div class="btn-holder">
+                    <button class="btn btn-primary" id="btn-add" onclick="addFlight()">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="already">
+        <div class="panel panel-info">
+            <div class="panel-heading">已有班机</div>
+            <div class="panel-body">
+                <!-- Table -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#编号</th>
+                            <th>航线</th>
+                            <th>出发日期</th>
+                            <th>到达日期</th>
+                            <th>价格</th>
+                            <th>总票数</th>
+                            <th>剩余票数</th>
+                            <th></th>
+                            <!--<th>Username</th>-->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <volist name="FLY_FLIGHTS_LIST" id="F">
+                            <tr>
+                                <th scope="row">{$F.flightID}</th>
+                                <td>{$F.flightName}</td>
+                                <td>{$F.dateOfDeparture}</td>
+                                <td>{$F.dateOfArrival}</td>
+                                <td>{$F.price}</td>
+                                <td>{$F.ticketNum}</td>
+                                <td>{$F.ticketLeftNum}</td>
+                                <td><a href="{:U('Admin/Air/ordersInfo/',array('flightID'=>$F['flightID']))}">详情</a></td>
+                            </tr>
+                        </volist>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script src="__PUBLIC__/js/jquery.min.js" charset="utf-8"></script>
+<script src="__PUBLIC__/js/plugins/bootstrap/js/bootstrap.js" charset="utf-8"></script>
+<script src="./App/Admin/View/default/js/flights.js" charset="utf-8"></script>
+
+</html>

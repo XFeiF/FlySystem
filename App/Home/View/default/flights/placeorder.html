@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>详情·机票预订系统</title>
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/base.css">
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/index.css">
+    <link rel="stylesheet" href="__PUBLIC__/js/plugins/bootstrap/css/bootstrap.css">
+
+</head>
+
+<body style="background-color:#ddd;">
+    <include file="./App/Home/View/default/header.html" />
+    <volist name="FLY_FLIGHTS_Detail" id="f">
+        <div class="flightinfo">
+            <div id="{$f.flightID}">
+                <table class="table_full">
+                    <tbody class="tbody_90">
+                        <tr class="F_header_row">
+                            <td class="F_airline">
+                                <div class="airline medium_text">{$f.airlineName} {$f.dateOfDeparture}</div>
+                                <div class="lineId">{$f.flightName}</div>
+                            </td>
+                            <td class="F_departure">
+                                <div class="F_dep_time medium_text"><strong>{$f.timeOfFly}</strong></div>
+                                <div class="F_dep_place small_text">{$f.departure}</div>
+                            </td>
+                            <td class="F_destination">
+                                <div class="F_des_time medium_text"><strong>{$f.timeOfArrival}</strong></div>
+                                <div class="F_des_place small_text">{$f.destination}</div>
+                            </td>
+                            <td class="F_price">
+                                <div><span class="F_price_text big_text">¥ {$f.price}</span></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </volist>
+    <div id="confirm_box" class="btn-group btn-group " role="group">
+        <a type="button" class="btn btn-success" href="{:U('Home/Users/placeOrder/',array('flightID'=>$f['flightID']))}">确认订票</a>
+        <a type="button" class="btn btn-default" href="{:U('Flights/index')}">返回</a>
+    </div>
+</body>

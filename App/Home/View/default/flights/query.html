@@ -1,0 +1,49 @@
+<div class="search_result_wrap">
+    <div class="result_title">
+        <table class="table_full">
+            <tbody>
+                <tr>
+                    <td class="result_t"><span>航班信息</span></td>
+                    <td class="result_t"><span>起飞时间</span></td>
+                    <td class="result_t"><span>降落时间</span></td>
+                    <td class="result_t"><span>票价</span></td>
+                    <td class="result_t"><span>余票</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="search_result">
+        <div class="flightlist">
+            <volist name="FLY_FULL_FLIGHTS_LIST" id="f">
+                <li class="flightinfo">
+                    <a href="{:U('Home/Flights/getFlightsDetail/',array('flightID'=>$f['flightID']))}" id="{$f.flightID}">
+                        <table class="table_full">
+                            <tbody class="tbody_90">
+                                <tr class="F_header_row">
+                                    <td class="F_airline">
+                                        <div class="airline medium_text">{$f.airlineName} {$f.dateOfDeparture}</div>
+                                        <div class="lineId">{$f.flightName}</div>
+                                    </td>
+                                    <td class="F_departure">
+                                        <div class="F_dep_time medium_text"><strong>{$f.timeOfFly}</strong></div>
+                                        <div class="F_dep_place small_text">{$f.departure}</div>
+                                    </td>
+                                    <td class="F_destination">
+                                        <div class="F_des_time medium_text"><strong>{$f.timeOfArrival}</strong></div>
+                                        <div class="F_des_place small_text">{$f.destination}</div>
+                                    </td>
+                                    <td class="F_price">
+                                        <div><span class="F_price_text big_text">¥ {$f.price}</span></div>
+                                    </td>
+                                    <td class="F_tickets">
+                                        <div><span class="F_ticket_text big_text">{$f.ticketLeftNum}</span></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </a>
+                </li>
+            </volist>
+        </div>
+    </div>
+</div>

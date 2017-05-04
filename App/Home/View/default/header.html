@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="__PUBLIC__/js/plugins/bootstrap/css/bootstrap.css">
+<?php
+        $FLY_USER = session('FLY_USER');
+?>
+    <script>
+        var FLY = ThinkPHP = window.Think = {
+            "ROOT": "__ROOT__",
+            "APP": "__APP__",
+            "PUBLIC": "__PUBLIC__",
+        }
+    </script>
+
+    <include file="./App/Home/View/default/header_site.html" />
+
+
+    <div class="menu">
+        <div id="left-menu" class="btn-group btn-group-justified " role="group">
+            <a type="button" class="btn btn-primary" href="{:U('Index/index')}">主页</a>
+            <a type="button" class="btn btn-primary" href="{:U('Flights/index')}">机票</a>
+        </div>
+        <if condition="!$FLY_USER['userID']">
+            <div id="right-menu" class="btn-group btn-group-justified" role="group">
+                <a type="button" class="btn btn-success" href="{:U('Users/signin')}" id="signin">登陆</a>
+                <a type="button" class="btn btn-warning" href="{:U('Users/signup')}" id="signup">注册</a>
+            </div>
+        </if>
+        <if condition="$FLY_USER['userID'] gt 0">
+            <div id="right-menu" class="btn-group ">
+                <button id="F_user" type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {$FLY_USER['userName']} <span class="caret"></span>
+            </button>
+                <ul class="dropdown-menu">
+                    <li><a href="{:U('Users/center')}">个人中心</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="{:U('Users/logout')}">退出</a></li>
+                </ul>
+            </div>
+        </if>
+    </div>
+    <script src="__PUBLIC__/js/jquery.min.js" charset="utf-8"></script>
+    <script src="__PUBLIC__/js/think.js" charset="utf-8"></script>
+    <script src="__PUBLIC__/js/plugins/bootstrap/js/bootstrap.js" charset="utf-8"></script>
+    <script src="__ROOT__/App/Home/View/default/js/header.js"></script>

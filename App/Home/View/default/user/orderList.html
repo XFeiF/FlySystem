@@ -1,0 +1,65 @@
+<div class="mainorder">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="order-hd panel-title">乘机人：{$o.userName}</h3>
+        </div>
+        <div class="panel-body">
+            <table id="order-bd" cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr>
+                        <td class="airline">
+                            <ul class="orderbd-list">
+                                <li><em>{$o.airlineName}</em></li>
+                                <li><em class="font-family:arial">{$o.flightName}</em></li>
+                            </ul>
+                        </td>
+                        <td class="product">
+                            <div class="product-fist">
+                                <div class="clearfix">
+                                    <!--<div class="pic">
+                                        <img src="http://simg1.qunarzz.com/site/images/airline_logo/order/CZ.png" alt="中国南方航空公司" title="中国南方航空公司">
+                                    </div>-->
+                                    <div class="name">
+                                        <div class="name-main clearfix">
+                                            <span class="name-icon icon-qi"></span>
+                                            <div class="misc">
+                                                <div class="clearfix">
+                                                    <span class="f_l">{$o.departure} </span>
+                                                </div>
+                                                <p>{$o.dateOfDeparture} {$o.timeOfFly}</p>
+                                            </div>
+                                        </div>
+                                        <div class="name-main clearfix">
+                                            <span class="name-icon icon-jiang"></span>
+                                            <div class="misc">{$o.destination}
+                                                <p>{$o.dateOfArrival} {$o.timeOfArrival}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="price">
+                            <ul class="orderbd-list">
+                                <li><em style="font-family:arial;">¥</em>{$o.price}</li>
+                            </ul>
+                        </td>
+                        <td class="state">
+                            <p>{$o.status}</p>
+                        </td>
+                        <if condition="$o.status neq '已取消'">
+                            <td class="remarks">
+                                <if condition="$o.isPaid neq 1">
+                                    <p><a class="order-action" href="{:U('Home/Users/payForOrder/',array('orderID'=>$o['orderID']))}">付款</a></p>
+                                    <else/>
+                                    <p><a class="order-action" href="{:U('Home/Users/takeTicket/',array('orderID'=>$o['orderID']))}">取票</a></p>
+                                </if>
+                                <p><a class="order-action" href="{:U('Home/Users/cancelOrder/',array('orderID'=>$o['orderID']))}">取消订单</a></p>
+                            </td>
+                        </if>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

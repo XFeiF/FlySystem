@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>个人中心·飞票网</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/base.css">
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/index.css">
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/user.css">
+    <link rel="stylesheet" href="__PUBLIC__/js/plugins/bootstrap/css/bootstrap.css">
+
+
+</head>
+<?php
+        $FLY_USER = session('FLY_USER');
+?>
+
+    <body>
+        <include file="./App/Home/View/default/header_site.html" />
+        <div id="line"></div>
+        <div class="main_body">
+            <div class="u_nav lt">
+                <ul class="nav nav-pills nav-stacked" id="nav_list">
+                    <li role="presentation" class="active"><a href="#">个人资料</a></li>
+                    <li role="presentation"><a href="{:U('Users/showOrders')}">我的订单</a></li>
+                    <li role="presentation"><a href="{:U('Users/showTickets')}">我的机票</a></li>
+                    <li role="presentation"><a href="{:U('Index/index')}"> 返回主页</a></li>
+                </ul>
+            </div>
+            <div class="u_content rt">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">个人信息</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>用户名：<span class="user_text">{$FLY_USER['userName']}</span></li>
+                            <li>手机号：<span class="user_text">{$FLY_USER['userPhone']}</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="__PUBLIC__/js/jquery.min.js" charset="utf-8"></script>
+    <script src="__PUBLIC__/js/plugins/bootstrap/js/bootstrap.js" charset="utf-8"></script>
+
+</html>

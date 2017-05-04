@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>搜索·机票预订系统</title>
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/base.css">
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/index.css">
+
+</head>
+
+<body style="background-color:#ddd;">
+    <include file="./App/Home/View/default/header.html" />
+    <div id="tip_wrap">
+        <div id="tip">
+            <p class="tip_msg">点击订票</p>
+        </div>
+    </div>
+    <div class="flights-main">
+        <!--搜索框-->
+        <div class="m-fix" id="searchBox">
+            <div class="m-search">
+                <div class="m-search-bd">
+                    <div class="m-search-item g-clear">
+                        <form method="get" action="">
+                            <div class="search_list">
+                                <ul>
+                                    <li class="search_list_text">
+                                        <span>出发地</span>
+                                        <input name="txtDeparture" class="us_departure" id="txtDeparture" onblur="if(!value){$(this).prev('span').show()}" type="text" value="">
+                                    </li>
+                                    <li class="search_list_text">
+                                        <span>目的地</span>
+                                        <input name="txtDestination" class="us_destination" id="txtDestination" onblur="if(!value){$(this).prev('span').show()}" type="text" value="">
+                                    </li>
+                                    <li class="search_list_text">
+                                        <span>日期</span>
+                                        <input name="txtDate" class="us_date" id="indate" type="text" placeholder="请选择" readonly>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <button type="button" title="" class="search_bnt lt" onclick="searchFlights()">搜索</button>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--搜索结果-->
+        <include file="./App/Home/View/default/flights/query.html" />
+
+    </div>
+</body>
+<script src="__PUBLIC__/js/jquery.min.js" charset="utf-8"></script>
+<script src="__PUBLIC__/js/think.js" charset="utf-8"></script>
+<script src="__ROOT__/App/Home/View/default/js/flights.js" charset="utf-8"></script>
+
+<!--jedate插件-->
+<script src="__PUBLIC__/js/plugins/jedate/jedate.js" charset="utf-8"></script>
+<script>
+    $(document).ready(function() {
+        jeDate({
+            dateCell: "#indate", //isinitVal:true,
+            format: "YYYY-MM-DD",
+            isTime: false, //isClear:false,
+        });
+    });
+</script>
+
+</html>

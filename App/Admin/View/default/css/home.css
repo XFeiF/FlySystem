@@ -1,0 +1,46 @@
+.medium_text {
+    font-size: 20px;
+}
+
+.small_text {
+    font-size: 12px;
+}
+
+.big_text {
+    font-size: 24px;
+}
+
+.top {
+    background-color: #681d5e;
+    width: 100%;
+    height: 50px;
+}
+
+body .bd {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.btn-holder {
+    margin: 10px;
+}
+
+#info .input-group{
+    margin: 10px !important;
+}
+
+.F_header_row td {
+    width: 15%;
+    padding: 25px 0 3px 34px;
+    white-space: nowrap;
+}
+
+.F_price_text {
+    color: #ff9705;
+    margin: -1px 5px 0 0;
+}
+
+.F_ticket_text {
+    color: #66f;
+    margin: -1px 5px 0 0;
+}

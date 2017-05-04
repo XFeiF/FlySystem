@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>会员登陆·飞票网</title>
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/base.css">
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/index.css">
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/signin.css">
+
+</head>
+
+<body>
+    <include file="./App/Home/View/default/logotext.html" />
+
+    <div class="signin_main">
+        <form method="post" action="{:U('Users/signinCheck')}" autocomplete="off">
+            <div class="signin_bg wap animation fadeInRight">
+                <ul class="sign_list">
+                    <li class="sign_list_text">
+                        <span>手机号码</span>
+                        <input name="txtUserPhone" class="us_name" id="txtUserPhone" onfocus="$(this).prev('span').hide()" onblur="if(!value){$(this).prev('span').show()}" type="text" value="">
+                    </li>
+                    <li class="sign_list_text">
+                        <span style="display: block;">密码</span>
+                        <input name="txtPassword" class="us_pwd" id="txtPassword" onfocus="$(this).prev('span').hide()" onblur="if(!value){$(this).prev('span').show()}" type="password" value="">
+                    </li>
+                    <li>
+                        <span class="errotip" id="ListMsg"></span>
+                        <a title="登录" class="sign_bnt lt" onclick="submitForm()" href="#">登录</a>
+                        <a title="注册" class="free_join rt" href="{:U('Users/signup')}">注册</a>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    <p class="sign_bt animation fadeInRight">
+        <a href="{:U('Index/index')}">返回首页</a> &nbsp;&nbsp;|&nbsp;&nbsp;QQ:274656448
+    </p>
+    </div>
+</body>
+<script src="__PUBLIC__/js/jquery.min.js" charset="utf-8"></script>
+<script src="__ROOT__/App/Home/View/default/js/signin.js" charset="utf-8"></script>
+
+</html>

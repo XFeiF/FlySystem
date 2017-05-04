@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>飞票网·新用户注册</title>
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/base.css">
+    <link rel="stylesheet" href="__ROOT__/App/Home/view/default/css/index.css">
+    <link rel="stylesheet" href="__ROOT__/App/Home/view/default/css/signup.css">
+
+</head>
+
+<body>
+    <div class="new_reg_box p_abs">
+        <div class="wap p_rel">
+            <div class="reg_lists">
+                <span class="p_abs animation fadeInRight">
+                    <a href="{:U('Index/index')}" title="飞票网">
+                    <img alt="飞票网" src="__ROOT__/App/Home/View/default/images/signup_lt.png">
+                    </a>
+                </span>
+                <h2 class="c_wap reg_title"><a href="javascript:;" class="lt reg_phone_btn sel">手机号注册</a>
+                    <span class="rt">已有账号？<a href="{:U('Users/signin')}">立即登录</a></span></h2>
+
+                <form id="signupForm" action="{:U('Users/signupSubmit')}" method="post" autocomplete="off">
+                    <ul class="animation fadeInRight email_reg" style="display: block;">
+                        <li class="reg_txt phone_txt clearfix">
+                            <span style="display: block;">手机号码</span>
+                            <input value="" type="text" name="txtMobile" id="txtMobile" class="txt_box lt" onfocus="$(this).prev('span').hide()" onblur="if(!value){$(this).prev('span').show()}">
+                            <p class="error_tip"></p>
+                        </li>
+
+                        <li class="reg_txt">
+                            <span style="display: block;">用户名</span>
+                            <input <input="" value="" type="text" name="txtUserName" id="txtUserName" class="txt_box" onfocus="$(this).prev('span').hide()" onblur="if(!value){$(this).prev('span').show()}" style="border-color: rgb(186, 186, 186);">
+                            <p class="error_tip"></p>
+                        </li>
+
+                        <li class="reg_txt">
+                            <span style="display: block;">设置密码</span>
+                            <input value="" type="password" name="txtPassword" id="txtPassword" class="txt_box" onfocus="$(this).prev('span').hide()" onblur="if(!value){$(this).prev('span').show()}" style="border-color: rgb(186, 186, 186);">
+                            <p class="error_tip"></p>
+                        </li>
+
+                        <li class="reg_txt">
+                            <span style="display: block;">确认密码</span>
+                            <input <input="" value="" type="password" name="txtCfmPassword" id="txtCfmPassword" class="txt_box" onfocus="$(this).prev('span').hide()" onblur="if(!value){$(this).prev('span').show()}" style="border-color: rgb(186, 186, 186);">
+                            <p class="error_tip"></p>
+                        </li>
+                    </ul>
+                    <button name="submit" class="animation fadeInRight reg_txt submit_btn" id="signup">立即注册</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+<script src="__PUBLIC__/js/jquery.min.js" charset="utf-8"></script>
+<script src="__ROOT__/App/Home/View/default/js/signup.js" charset="utf-8"></script>
+
+</html>

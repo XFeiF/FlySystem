@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>机票预订系统</title>
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/base.css">
+    <link rel="stylesheet" href="__ROOT__/App/Admin/View/default/css/login.css">
+    <link rel="stylesheet" href="__PUBLIC__/js/plugins/bootstrap/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="bd">
+        <div class="index-main-body">
+            <div class="index-img">
+                <img style="height:100px" alt="飞票网" src="__PUBLIC__/img/logotext.png">
+            </div>
+            <div class="panel panel-info">
+
+                <div class="panel-heading">登录</div>
+                <div class="panel-body">
+                    <form method="post" action="{:U('Admin/Index/loginCheck')}" autocomplete="off" content-type="">
+
+                        <ul class="sign_list">
+                            <li id="input-holder">
+                                <span>用户名</span>
+                                <input name="userName" class="form-control" id="userName" type="text" value="">
+                            </li>
+                            <li id="input-holder">
+                                <span style="display: block;">密码</span>
+                                <input name="userPasswd" class="form-control" id="userPasswd" type="password" value="">
+                            </li>
+                            <li>
+                                <a title="登录" class="btn btn-primary" onclick="submitForm()" href="#">登录</a>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="particles"></div>
+</body>
+<script src="__PUBLIC__/js/jquery.min.js" charset="utf-8"></script>
+<script src="__ROOT__/App/Admin/View/default/js/login.js" charset="utf-8"></script>
+
+</html>

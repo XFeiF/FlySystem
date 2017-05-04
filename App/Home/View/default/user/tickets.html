@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>我的机票·飞票网</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/base.css">
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/index.css">
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/user.css">
+    <link rel="stylesheet" href="__PUBLIC__/js/plugins/bootstrap/css/bootstrap.css">
+
+
+</head>
+
+
+<body>
+    <include file="./App/Home/View/default/header_site.html" />
+    <div id="line"></div>
+    <div class="main_body">
+        <div class="u_nav lt">
+            <ul class="nav nav-pills nav-stacked" id="nav_list">
+                <li role="presentation"><a href="{:U('Users/center')}">个人资料</a></li>
+                <li role="presentation"><a href="{:U('Users/showOrders')}">我的订单</a></li>
+                <li role="presentation" class="active"><a href="#">我的机票</a></li>
+                <li role="presentation"><a href="{:U('Index/index')}"> 返回主页</a></li>
+            </ul>
+        </div>
+        <div class="u_content rt">
+            <h3>机票 &nbsp;&nbsp;<span class="label label-success">已取票</span></h3>
+            <volist name="FLY_MY_TICKETS" id="o">
+                <include file="./App/Home/View/default/user/ticketList.html" />
+            </volist>
+            <h3>机票 &nbsp;&nbsp;<span class="label label-success">已退票</span></h3>
+            <volist name="FLY_MY_BOUNCE_TICKETS" id="o">
+                <include file="./App/Home/View/default/user/ticketList.html" />
+            </volist>
+        </div>
+    </div>
+</body>
+<script src="__PUBLIC__/js/jquery.min.js" charset="utf-8"></script>
+<script src="__PUBLIC__/js/plugins/bootstrap/js/bootstrap.js" charset="utf-8"></script>
+
+</html>

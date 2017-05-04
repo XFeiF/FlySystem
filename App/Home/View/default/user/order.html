@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>我的订单·飞票网</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/base.css">
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/index.css">
+    <link rel="stylesheet" href="__ROOT__/App/Home/View/default/css/user.css">
+    <link rel="stylesheet" href="__PUBLIC__/js/plugins/bootstrap/css/bootstrap.css">
+
+
+</head>
+
+<body>
+    <include file="./App/Home/View/default/header_site.html" />
+    <div id="line"></div>
+    <div class="main_body">
+        <div class="u_nav lt">
+            <ul class="nav nav-pills nav-stacked" id="nav_list">
+                <li role="presentation"><a href="{:U('Users/center')}">个人资料</a></li>
+                <li role="presentation" class="active"><a href="#">我的订单</a></li>
+                <li role="presentation"><a href="{:U('Users/showTickets')}">我的机票</a></li>
+                <li role="presentation"><a href="{:U('Index/index')}"> 返回主页</a></li>
+            </ul>
+        </div>
+        <div class="u_content rt">
+
+            <h3>订单 &nbsp;&nbsp;<span class="label label-primary">待付款</span></h3>
+            <volist name="FLY_MY_ORDERS" id="o">
+                <include file="./App/Home/View/default/user/orderList.html" />
+            </volist>
+
+            <h3>订单 &nbsp;&nbsp;<span class="label label-success">已付款</span></h3>
+            <volist name="FLY_MY_PAID_ORDERS" id="o">
+                <include file="./App/Home/View/default/user/orderList.html" />
+            </volist>
+
+            <h3>订单 &nbsp;&nbsp;<span class="label label-danger">已取消</span></h3>
+            <volist name="FLY_MY_CANCLED_ORDERS" id="o">
+                <include file="./App/Home/View/default/user/orderList.html" />
+            </volist>
+        </div>
+    </div>
+</body>
+<script src="__PUBLIC__/js/jquery.min.js" charset="utf-8"></script>
+<script src="__PUBLIC__/js/plugins/bootstrap/js/bootstrap.js" charset="utf-8"></script>
+
+</html>
